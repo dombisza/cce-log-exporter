@@ -157,7 +157,7 @@ run() {
   get_kernel_info
   get_openstack_metadata
   get_load
-  get_mount
+  get_mounts
   get_iptables
   get_common_logs
   get_cce_logs
