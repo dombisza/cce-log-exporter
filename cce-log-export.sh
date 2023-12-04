@@ -144,7 +144,7 @@ get_cce_logs() {
 
 pack() {
   tar --gzip -cvf /tmp/cce-export-${HOSTNAME}.tar.gz --directory ${TARGET_DIR} . >/dev/null 2>&1 \
-    && info "Pacaking complete. Please see the file at: /tmp/cce-export-${HOSTNAME}.tar.gz" || err "Cannot package directory." 
+    && info "Packaging complete. Please see the file at: /tmp/cce-export-${HOSTNAME}.tar.gz" || err "Cannot package directory." 
 }
 
 init() {
@@ -158,6 +158,7 @@ run() {
   get_kernel_info
   get_openstack_metadata
   get_load
+  get_mount
   get_iptables
   get_common_logs
   get_cce_logs
