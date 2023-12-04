@@ -4,13 +4,14 @@ This is a simple script which will export all required information and logs for 
 
 # Usage
 
-### Clone repository <run on the worker node>
-
+### Clone repository 
+Run from the workernode
 ```bash
 git clone https://github.com/dombisza/cce-log-exporter.git
 ```
 
-### Run the script as root <run on the worker node>
+### Run the script as root 
+Run from the workernode
 ```bash
 sudo ./cce-log-export.sh
 ```
@@ -75,7 +76,8 @@ Collection
 └── meta_data.json
 ```
 
-### Download the file <run from your local client>
+### Download the file 
+Run from your local client
 ```bash
 scp <CCE_NODE>:/tmp/cce-export-<CCE_NODE_HOSTNAME>.tar.gz .
 ```
