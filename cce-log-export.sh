@@ -60,7 +60,7 @@ create_script_dir() {
 
 get_openstack_metadata() {
   info "Quering openstack metadata."
-  >&2 curl --connect-timeout 2 ${OPENSTACK_METADATA} > ${TARGET_DIR}/meta_data.json 2>/dev/null \
+  curl --connect-timeout 2 ${OPENSTACK_METADATA} > ${TARGET_DIR}/meta_data.json 2>/dev/null \
     && info "Openstack metadata saved." || warn "Cannot obtain openstack metadata"
 }
 
@@ -134,7 +134,6 @@ get_cce_logs() {
     info "Processing ${log_file}."
     if [[ -e "${LOG_DIR}/cce/${log_file}" ]]; then
       cp -f ${LOG_DIR}/cce/${log_file} ${TARGET_DIR}/logs/cce/ 2>/dev/null
-      continue
     else
       warn "Cannot find ${log_file}."
     fi
