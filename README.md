@@ -26,7 +26,7 @@ Output
 [INFO] Quering openstack metadata.
 [INFO] Openstack metadata saved.
 [INFO] Getting historical load values.
-[INFO] Getting load values success
+[INFO] Getting load values success.
 [INFO] Getting iptables tables.
 [INFO] Collecting common logs.
 [INFO] Processing syslog.
@@ -34,7 +34,7 @@ Output
 [INFO] Processing cce-agent-install.log.
 [INFO] Processing cloud-init.log.
 [INFO] Processing kern.log.
-[INFO] Commond logs collected.
+[INFO] Common logs collected.
 [INFO] Collecting CCE logs.
 [INFO] Processing containerd/containerd.log.
 [INFO] Processing everest-csi-driver/everest-csi-controller.log.
@@ -45,7 +45,7 @@ Output
 [INFO] Processing yangtse/yangtse-cni.log.
 [INFO] Processing canal/canal-agent.log.
 [WARN] Cannot find canal/canal-agent.log.
-[INFO] CCE logs collected
+[INFO] CCE logs collected.
 [INFO] Pacaking complete. Please see the file at: /tmp/cce-export-<HOSTNAME>.tar.gz]
 ```
 

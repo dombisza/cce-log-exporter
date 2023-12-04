@@ -77,7 +77,7 @@ get_mounts() {
 get_load() {
   info "Getting historical load values."
   sar -q > ${TAGET_DIR}/load_values.txt \
-    && info "Getting load values success" || warn "Cannot get historycal load values."
+    && info "Getting load values success." || warn "Cannot get historycal load values."
 }
 
 get_iptables() {
@@ -125,7 +125,7 @@ get_common_logs() {
       warn "Cannot find ${log_file}."
     fi
   done
-  info "Commond logs collected."
+  info "Common logs collected."
 }
 
 get_cce_logs() {
@@ -139,7 +139,7 @@ get_cce_logs() {
       warn "Cannot find ${log_file}."
     fi
   done
-  info "CCE logs collected"
+  info "CCE logs collected."
 }
 
 pack() {
