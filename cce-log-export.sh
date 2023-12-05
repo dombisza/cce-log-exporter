@@ -29,6 +29,15 @@ CCE_LOGS=(
   canal/canal-agent.log
 )
 
+CONFIG_FILES=(
+  /opt/cloud/cce/kubernetes/kube-proxy/kube-proxy
+  /opt/cloud/cce/kubernetes/kubelet/kubelet_config.yaml
+  /opt/cloud/cce/kubernetes/kubelet/kubelet
+  /opt/cloud/cce/kubernetes/cce-agent/agentConfig
+  /etc/containerd/config.toml
+  /etc/docker/daemon.json
+)
+
 help() {
   echo "usage..."
   exit 0
@@ -55,6 +64,7 @@ check_root() {
 
 create_script_dir() {
   info "Creating target directory."
+  mkdir -p ${TARGET_DIR}/config
   mkdir -p ${TARGET_DIR}/logs/cce
 }
 
@@ -141,6 +151,19 @@ get_cce_logs() {
   info "CCE logs collected."
 }
 
+get_configs() {
+  info "Collecting config files."
+  for conf_file in ${CONFIG_FILES[*]}; do
+    info "Processing ${conf_file}."
+    if [[ -e ${conf_file} ]]; then
+      cp -f ${conf_file} ${TARGET_DIR}/config/
+    else
+      warn "Cannot find ${conf_file}"
+    fi
+  done
+   info "Configs collected"
+}
+
 pack() {
   tar --gzip -cvf /tmp/cce-export-${HOSTNAME}.tar.gz --directory ${TARGET_DIR} . >/dev/null 2>&1 \
     && info "Packaging complete. Please see the file at: /tmp/cce-export-${HOSTNAME}.tar.gz" || err "Cannot package directory." 
@@ -161,6 +184,7 @@ run() {
   get_iptables
   get_common_logs
   get_cce_logs
+  get_configs
   pack
 }
 
