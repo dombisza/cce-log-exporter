@@ -27,6 +27,7 @@ Output
 [INFO] Openstack metadata saved.
 [INFO] Getting historical load values.
 [INFO] Getting load values success.
+[INFO] Getting mount info
 [INFO] Getting iptables tables.
 [INFO] Collecting common logs.
 [INFO] Processing syslog.
@@ -37,6 +38,7 @@ Output
 [INFO] Common logs collected.
 [INFO] Collecting CCE logs.
 [INFO] Processing containerd/containerd.log.
+[WARN] Cannot find containerd/containerd.log.
 [INFO] Processing everest-csi-driver/everest-csi-controller.log.
 [INFO] Processing everest-csi-driver/everest-csi-driver.log.
 [INFO] Processing kubernetes/kube-proxy.log.
@@ -46,17 +48,30 @@ Output
 [INFO] Processing canal/canal-agent.log.
 [WARN] Cannot find canal/canal-agent.log.
 [INFO] CCE logs collected.
-[INFO] Pacaking complete. Please see the file at: /tmp/cce-export-<HOSTNAME>.tar.gz]
+[INFO] Collecting config files.
+[INFO] Processing /opt/cloud/cce/kubernetes/kube-proxy/kube-proxy.
+[INFO] Processing /opt/cloud/cce/kubernetes/kubelet/kubelet_config.yaml.
+[INFO] Processing /opt/cloud/cce/kubernetes/kubelet/kubelet.
+[INFO] Processing /opt/cloud/cce/kubernetes/cce-agent/agentConfig.
+[INFO] Processing /etc/containerd/config.toml.
+[INFO] Processing /etc/docker/daemon.json.
+[INFO] Configs collected
+[INFO] Packaging complete. Please see the file at: /tmp/cce-export-sdombi-dev-cluster-69514.tar.gz
 ```
 
 Collection
 ```bash
-/tmp/cce-log-exporter/
+├── config
+│   ├── agentConfig
+│   ├── config.toml
+│   ├── daemon.json
+│   ├── kube-proxy
+│   ├── kubelet
+│   └── kubelet_config.yaml
 ├── iptables.txt
 ├── kernel_version.txt
 ├── logs
 │   ├── cce
-│   │   ├── containerd.log
 │   │   ├── everest-csi-controller.log
 │   │   ├── everest-csi-driver.log
 │   │   ├── kube-proxy.log
@@ -71,9 +86,9 @@ Collection
 │   ├── dmesg.2.gz
 │   ├── kern.log
 │   ├── kern.log.1
-│   ├── kern.log.2.gz
 │   └── syslog
-└── meta_data.json
+├── meta_data.json
+└── mount.txt
 ```
 
 ### Download the file 
